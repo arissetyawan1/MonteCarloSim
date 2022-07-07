@@ -47,7 +47,7 @@
         // }
 
         try {
-             $sql = "INSERT INTO prediksi_permintaan ('year', 'demand', 'demand_result') VALUES ";
+             $sql = "INSERT INTO prediksi_permintaan(year, demand, demand_result) VALUES ";
                 for($i = 0 ; $i < count($year) ; $i++){
                     $varTname = $year[$i];
                     $varCity = $demand[$i];
