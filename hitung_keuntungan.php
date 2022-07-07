@@ -114,9 +114,9 @@
 		</div>
 		<form action="add.php" method="post">
 						<table>
-							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name=demand[]>
-							<input type="input" value="<?php echo print base64_encode(serialize($demandRes)); ?>" name=demand_result[]>
-							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name=years[]>
+							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand">
+							<input type="input" value="<?php echo print base64_encode(serialize($demandRes)); ?>" name="demand_result">
+							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name="years">
 							<tr>
 								<td><input type="submit" class="btn btn-info" value="Simpan Perhitungan" style="padding-left: 30px; padding-right: 30px;"></td>
 							</tr>
