@@ -9,7 +9,9 @@
 	$dem = $_POST['demand'];
 	$demand = unserialize(base64_decode($dem));
 	$hasilTotal = [];
-	
+	$year = unserialize(base64_decode($_POST['year']));
+
+	var_dump($year);
 	for($i=0; $i<$banyak; $i++) {
 		$hasilTotal[$i] = 0;
 	}
@@ -45,11 +47,14 @@
 				  <div class="table table-responsive">
 					<table class="table table-hover custom-table-header" border="0">
 						  <tr>
-							  <th rowspan="2">Hari</th>
+							  <th rowspan="2">Bulan</th>
 							  <th>Quantity Order</th>
 							<?php 
 								for($i=0; $i<$banyak; $i++) {
-							?><th><?php echo $demand[$i]; ?></th>
+							?><th>
+								<?php echo $demand[$i]; ?>
+								<?= $year[$i];?>
+							</th>
 							<?php } ?>
 						  </tr>
 						  <tr>
@@ -107,6 +112,37 @@
 				</div>
 			</div>
 		</div>
+		<form action="add.php" method="post">
+						<table>
+							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name=demand[]>
+							<input type="input" value="<?php echo print base64_encode(serialize($demandRes)); ?>" name=demand_result[]>
+							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name=years[]>
+							<tr>
+								<td><input type="submit" class="btn btn-info" value="Simpan Perhitungan" style="padding-left: 30px; padding-right: 30px;"></td>
+							</tr>
+						</table>
+		</form>
 	</div>
+	<!-- <
+ 
+	// Check If form submitted, insert form data into users table.
+	// if(isset($_POST['submit'])) {
+		// $demand = $_POST['name'];
+		// $email = $_POST['email'];
+		// $mobile = $_POST['mobile'];
+		// $year = unserialize(base64_decode($_POST['years']));
+		// $demand = unserialize(base64_decode($_POST['demand']));
+		// $demand_result = unserialize(base64_decode($_POST['demand_result']));
+		// var_dump($demand_result);
+		// include database connection file
+		// include_once("koneksi.php");
+				
+		// Insert user data into table
+		// $result = mysqli_query($mysqli, "INSERT INTO prediksi(year,demand,demand_result) VALUES('$years','$demand','$demand_result')");
+		
+		// Show message when user added
+		// echo "User added successfully. <a href='index.php'>View Users</a>";
+	//}
+?> -->
 	</body>
 </html>

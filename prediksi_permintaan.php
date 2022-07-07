@@ -8,6 +8,8 @@
 		<link rel="icon" href="img/favicon.ico">
 	  	<script src="js/jquery.js"></script>
 	  	<script src="js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
 	</head>
 	<body>
 	<nav class="navbar navbar-default">
@@ -68,14 +70,25 @@
 											<td>Masukan jumlah data</td>
 											<td>:</td>
 											<td><input type="number" min="0" name="jumlah" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
+											<td>Masukan tahun</td>
+											<td>:</td>
+											<td>
+												<div class="input-group">
+													<label class ="mr-3"> Tahun </label>
+													<input type="text" id="datepicker" name="tahun" />
 											<div class="input-group-btn">
-											<td><input type="submit" value="Ok" class="btn btn-success"></td>
-      										</div>
+												<td><input type="submit" value="Ok" class="btn btn-success"></td>
+											</div>
+										</tr>			
 									</table>
 								</form>
 							</div>
 							<?php else: ?>
-								<?php $banyak = $_POST['jumlah'];?>
+								<?php 
+									$banyak = $_POST['jumlah'] ;
+									$tahun = $_POST['tahun'];
+									var_dump($tahun);	
+								;?>
 									<?php if(!empty($banyak)): ?>
 									<div class="input-group">
 									<h1><center>Tahap 1</center></h1>
@@ -89,8 +102,13 @@
 												  <tr>
 											<?php for($i=0; $i<$banyak; $i++): ?>
 												  <tr>
-													  <td><input type=number min=0 name=demand[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
-													  <td><input type=number min=1 name=freq[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
+													<td>
+														<input type=number min=0 name=demand[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
+														<input min=0 name=year[] placeholder="0" value='<?php echo $tahun; ?>' hidden>
+													</td>
+													<td>
+														<input type=number min=1 name=freq[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
+													</td>
 												  </tr>
 											<?php endfor; ?>
 										  </table>
@@ -119,5 +137,17 @@
 
 	</div>
 	</body>
-
+	<script>
+			 $("#datepicker").datepicker({
+					format: " yyyy", // Notice the Extra space at the beginning
+					viewMode: "years", 
+					minViewMode: "years"
+			});
+			console.log($("#datepicker").val());
+			 $("#datepicker").on("change",function(){
+				var selected = $(this).val();
+				console.log(selected);
+				$(".year").val(selected);
+			});
+	</script>
 </html>

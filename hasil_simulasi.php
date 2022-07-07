@@ -40,6 +40,8 @@
 			$topInt = $_POST['topInterval'];
 			$topInterval = unserialize(base64_decode($topInt));
 			$demandResult;
+			$year = unserialize(base64_decode($_POST['year']));
+			// var_dump($year);
 		?>
 		<div class="panel panel-primary">
 			<div class="panel-heading">Hasil Perhitungan</div>
@@ -61,7 +63,7 @@
 									echo $i+1; ?>
 							  </td>
 							  <td>
-								tes
+								<?php echo $demand[$i]; ?>
 							  </td>
 							  <td>
 								<?php
@@ -111,6 +113,7 @@
 							<input type="hidden" value="<?php echo $biaya; ?>" name="biaya">
 							<input type="hidden" value="<?php echo $demandResult; ?>" name="demandResult">
 							<input type="hidden" value="<?php echo $jmlRandom; ?>" name="jmlRandom">
+							<input type="hidden" value="<?php echo print base64_encode(serialize($year));?>" name="year">
 							<tr>
 								<td><input type="submit" class="btn btn-info" value="Prediksi Keuntungan" style="padding-left: 30px; padding-right: 30px;"></td>
 							</tr>

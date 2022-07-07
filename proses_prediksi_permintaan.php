@@ -30,7 +30,8 @@
 				$amount = count($freq);
 				$botInterval = [];
 				$topInterval = [];
-
+				$year = $_POST['year'];
+				// var_dump($year);
 				//menghitung total frekuensi permintaan
 				for($i=0;$i<count($freq);$i++){
 					$total = $total + $freq[$i];
@@ -94,7 +95,10 @@
 						  </tr>
 					<?php for($i=0; $i<count($freq); $i++): ?>
 						  <tr>
-							  <td> <?php echo $demand[$i]; ?> </td>
+							  <td> <?php echo $demand[$i]; ?> 
+									<input type="input" name="demand[]" value="<?php echo $demand[$i]; ?>" readonly 	/>
+									<input type="input" name="year[]" value="<?php echo $year[$i]; ?>" />
+								</td>
 							  <td> <?php echo $probability[$i]; ?> </td>
 							  <td> <?php echo $cumulative[$i]; ?> </td>
 							  <td>
@@ -160,6 +164,8 @@
 									<input type="hidden" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand">
 									<input type="hidden" value="<?php print base64_encode(serialize($botInterval)); ?>" name="botInterval">
 									<input type="hidden" value="<?php print base64_encode(serialize($topInterval)); ?>" name="topInterval">
+									<input type="hidden" value="<?php print base64_encode(serialize($year)); ?>" name="year">
+									
 									<tr>
 										<td colspan="2" align="center"><input type="submit" class="btn btn-success" value="Run" style="padding-left: 30px; padding-right: 30px;"></td>
 									</tr>
