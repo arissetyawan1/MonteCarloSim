@@ -51,6 +51,7 @@
 					<table class="table table-hover custom-table-header">
 						  <tr>
 							  <th>Hari</th>
+							  <th>Penjualan</th>
 							  <th>Bilangan Acak</th>
 							  <th>Permintaan</th>
 						  </tr>
@@ -58,6 +59,9 @@
 						  <tr>
 							  <td> <?php
 									echo $i+1; ?>
+							  </td>
+							  <td>
+								tes
 							  </td>
 							  <td>
 								<?php

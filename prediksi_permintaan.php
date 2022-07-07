@@ -25,9 +25,9 @@
 				<div class="panel-body">
 					<ul class="nav nav-tabs">
 						   <li class="active"><a data-toggle="tab" href="#monte">Simulasi Monte Carlo</a></li>
-						   <li><a data-toggle="tab" href="#sejarah">Sejarah</a></li>
-						   <li><a data-toggle="tab" href="#batasan">Batasan</a></li>
-						   <li><a data-toggle="tab" href="#metode">Metode</a></li>
+						   <li><a data-toggle="tab" href="#sejarah">Laporan Penjualan</a></li>
+						   <li><a data-toggle="tab" href="#metode">Laporan Prediksi</a></li>
+						   <!-- <!-- <li><a data-toggle="tab" href="#batasan">Batasan</a></li> -->
 
 						</ul>
 			  			 <div class="tab-content">
