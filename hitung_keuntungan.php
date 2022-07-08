@@ -11,7 +11,7 @@
 	$hasilTotal = [];
 	$year = unserialize(base64_decode($_POST['year']));
 
-	var_dump($year);
+	// var_dump($year);
 	for($i=0; $i<$banyak; $i++) {
 		$hasilTotal[$i] = 0;
 	}
@@ -114,9 +114,9 @@
 		</div>
 		<form action="add.php" method="post">
 						<table>
-							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand">
-							<input type="input" value="<?php echo print base64_encode(serialize($demandRes)); ?>" name="demand_result">
-							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name="years">
+							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand" hidden>
+							<input type="input" value="<?php echo print base64_encode(serialize($demandRes)); ?>" name="demand_result" hidden>
+							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name="years" hidden>
 							<tr>
 								<td><input type="submit" class="btn btn-info" value="Simpan Perhitungan" style="padding-left: 30px; padding-right: 30px;"></td>
 							</tr>
