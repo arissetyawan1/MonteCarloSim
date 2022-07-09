@@ -1,58 +1,34 @@
  <?php require 'templates/header.php'; ?>
   <?php require 'templates/side_bar.php'; ?>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="jumbotron">
         <h1>
-          Bootstrap Navbar Sidebar
+          Tugas Akhir Penelitian
           <br />
-          <small>Fixed to Left or Right</small>
+          <!-- <small>Fixed to Left or Right</small> -->
         </h1>
-        <p>
+        <!-- <p>
           <strong>
             Use classic Bootstrap navbar as sidebar, on left or right side.
           </strong>
-        </p>
+        </p> -->
         <p>
-          <a
-            class="github-button"
-            href="https://github.com/mladenplavsic/bootstrap-navbar-sidebar"
-            data-icon="octicon-star"
-            data-style="mega"
-            data-count-href="/mladenplavsic/bootstrap-navbar-sidebar/stargazers"
-            data-count-api="/repos/mladenplavsic/bootstrap-navbar-sidebar#stargazers_count"
-            data-count-aria-label="# stargazers on GitHub"
-            aria-label="Star mladenplavsic/bootstrap-navbar-sidebar on GitHub"
-            >Star</a
-          >
-          <a
-            class="github-button"
-            href="https://github.com/mladenplavsic/bootstrap-navbar-sidebar/fork"
-            data-icon="octicon-repo-forked"
-            data-style="mega"
-            data-count-href="/mladenplavsic/bootstrap-navbar-sidebar/network"
-            aria-label="Fork mladenplavsic/bootstrap-navbar-sidebar on GitHub"
-            >Fork</a
-          >
-          <a
-            class="github-button"
-            href="https://github.com/mladenplavsic"
-            data-style="mega"
-            aria-label="Follow @mladenplavsic on GitHub"
-            >Follow @mladenplavsic</a
-          >
+          
         </p>
-        <p>
+        <!-- <p>
           Same when using <code>.navbar-fixed-top</code> - add class
           <code>.navbar-fixed-left</code> or
           <code>.navbar-fixed-right</code> where needed.
+        </p> -->
+        <p>
+          <b>Topik yang diambil pada Tugas Akhir  Teknik Simulasi dengan Simulasi Monte Carlo pada Studi Kasus Toko Keluarga</b>
         </p>
         <p>
-          Click buttons below, and appropriate class will be added to example
-          navbar.
+          Nurul Aini - 1810512022 | Sistem Informasi S-1
         </p>
         <p>
-          <span class="btn-group">
+          <!-- <span class="btn-group">
             <a data-class="navbar-fixed-left" class="btn btn-lg btn-default">
               <i class="fa fa-arrow-left"></i>
               Fixed Left
@@ -66,7 +42,8 @@
               <i class="fa fa-arrow-right"></i>
               Fixed Right
             </a>
-          </span>
+          </span> -->
+          <a class="btn btn-lg btn-primary" href="prediksi_permintaan.php"> Mulai Perhitungan</a>
         </p>
       </div>
       <script>
@@ -83,6 +60,6 @@
           });
       </script>
   <?php 
-    require 'templates/footer.php';
+    // require 'templates/footer.php';
   
   ?> 

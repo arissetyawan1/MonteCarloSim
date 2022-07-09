@@ -1,4 +1,4 @@
- <nav class="navbar navbar-inverse navbar-fixed-topleft ">
+ <nav class="navbar navbar-inverse  navbar-fixed-top ">
       <div class="container">
         <div class="navbar-header">
           <button
@@ -14,13 +14,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Dashboard</a>
+          <a class="navbar-brand" href="index.php">Dashboard</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Perhitungan</a></li>
-            <li><a href="#">Laporan Permintaan</a></li>
-            <li><a href="#">Laporan Prediski Permintaan</a></li>
+        <div id="navbar" class="navbar-collapse collapse" style="color: #fff;">
+          <ul class="nav navbar-nav" style="color: #fff;">
+            <li><a href="/montecarlosim/prediksi_permintaan.php">Perhitungan</a></li>
+            <li><a href="/montecarlosim/laporan_penjualan.php">Laporan Penjualan</a></li>
+            <li><a href="/montecarlosim/laporan_permintaan.php">Laporan Prediksi Permintaan</a></li>
             <!-- <li class="dropdown">
               <a
                 href="#"

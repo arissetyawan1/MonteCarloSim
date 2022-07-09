@@ -60,7 +60,7 @@
                 var_dump($sql);
                 $stmt = mysqli_prepare($link, $sql);
                 mysqli_stmt_execute($stmt);
-
+                header('location:index.php');
         } catch (\Throwable $th) {
             throw $th;
         }

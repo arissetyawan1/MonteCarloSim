@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 	<head>
 		<title>Program Simulasi Monte Carlo - Kelompok 2</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
 	</nav>
 
 	<!-- Container -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Deskripsi</div>
 				<div class="panel-body">
@@ -29,7 +29,7 @@
 						   <li class="active"><a data-toggle="tab" href="#monte">Simulasi Monte Carlo</a></li>
 						   <li><a data-toggle="tab" href="#sejarah">Laporan Penjualan</a></li>
 						   <li><a data-toggle="tab" href="#metode">Laporan Prediksi</a></li>
-						   <!-- <!-- <li><a data-toggle="tab" href="#batasan">Batasan</a></li> -->
+						<li><a data-toggle="tab" href="#batasan">Batasan</a></li> 
 
 						</ul>
 			  			 <div class="tab-content">
@@ -57,84 +57,89 @@
 						    	</div>
 						 </div>
 		   		</div>
-		   	</div>
+		   	</div> -->
+<?php require 'templates/header.php';?>
+<?php require 'templates/side_bar.php';?>
 
-		<div class="panel panel-primary">
-					<div class="panel-heading">Input Data Permintaan</div>
-						<div class="panel-body">
-							<?php if(empty($_POST)): ?>
-							<div class="input-group">
-								<form action="prediksi_permintaan.php" method="post">
-									<table class="custom-padding-table">
-										<tr>
-											<td>Masukan jumlah data</td>
-											<td>:</td>
-											<td><input type="number" min="0" name="jumlah" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
-											<td>Masukan tahun</td>
-											<td>:</td>
-											<td>
-												<div class="input-group">
-													<label class ="mr-3"> Tahun </label>
-													<input type="text" id="datepicker" name="tahun" />
-											<div class="input-group-btn">
-												<td><input type="submit" value="Ok" class="btn btn-success"></td>
-											</div>
-										</tr>			
-									</table>
-								</form>
-							</div>
-							<?php else: ?>
-								<?php 
-									$banyak = $_POST['jumlah'] ;
-									$tahun = $_POST['tahun'];
-									var_dump($tahun);	
-								;?>
-									<?php if(!empty($banyak)): ?>
+		<div class="container-fluid" style="width: 80%;left:0;">
+			<div class="row">
+				<div class="panel panel-primary" style="margin-top: 20px; margin-right: 10px">
+							<div class="panel-heading">Input Data Permintaan</div>
+								<div class="panel-body">
+									<?php if(empty($_POST)): ?>
 									<div class="input-group">
-									<h1><center>Tahap 1</center></h1>
-									<p><center>Silahkan masukan data permintaan</center></p>
-									  <form action="proses_prediksi_permintaan.php" method="post">
-									  	<div class="table table-responsive">
-										  <table class="table table-hover custom-table-header">
-												  <tr>
-													<th>Permintaan</th>
-													<th>Frekuensi</th>
-												  <tr>
-											<?php for($i=0; $i<$banyak; $i++): ?>
-												  <tr>
+										<form action="prediksi_permintaan.php" method="post">
+											<table class="custom-padding-table">
+												<tr>
+													<td>Masukan jumlah data</td>
+													<td>:</td>
+													<td><input type="number" min="0" name="jumlah" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
+													<td>Masukan tahun</td>
+													<td>:</td>
 													<td>
-														<input type=number min=0 name=demand[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
-														<input min=0 name=year[] placeholder="0" value='<?php echo $tahun; ?>' hidden>
-													</td>
-													<td>
-														<input type=number min=1 name=freq[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
-													</td>
-												  </tr>
-											<?php endfor; ?>
-										  </table>
-										  <table class="table table-hover custom-table-header">
-												  <tr>
-													<th>Biaya Produksi / Unit</th>
-													<th>Harga Penjualan / Unit</th>
-												  <tr>
-												  <tr>
-													  <td><input type=number min=1 name="biaya" placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
-													  <td><input type=number min=1 name="penjualan" placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
-												  </tr>
-										  </table>
-										  <div class="input-group-btn">
-											<input type="hidden" name="jumlah" value="<?php echo $banyak; ?>">
-											<center><input type="submit" value="Hitung" name="submit" class="btn btn-success" style="padding-left: 30px; padding-right: 30px;"></center>
-										  </div>
-										</div>
-									  </form>
+														<div class="input-group">
+															<label class ="mr-3"> Tahun </label>
+															<input type="text" id="datepicker" name="tahun" />
+													<div class="input-group-btn">
+														<td><input type="submit" value="Ok" class="btn btn-success"></td>
+													</div>
+												</tr>			
+											</table>
+										</form>
 									</div>
+									<?php else: ?>
+										<?php 
+											$banyak = $_POST['jumlah'] ;
+											$tahun = $_POST['tahun'];
+											var_dump($tahun);	
+										;?>
+											<?php if(!empty($banyak)): ?>
+											<div class="input-group">
+											<h1><center>Tahap 1</center></h1>
+											<p><center>Silahkan masukan data permintaan</center></p>
+											  <form action="proses_prediksi_permintaan.php" method="post">
+												  <div class="table table-responsive">
+												  <table class="table table-hover custom-table-header">
+														  <tr>
+															<th>Permintaan</th>
+															<th>Frekuensi</th>
+														  <tr>
+													<?php for($i=0; $i<$banyak; $i++): ?>
+														  <tr>
+															<td>
+																<input type=number min=0 name=demand[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
+																<input min=0 name=year[] placeholder="0" value='<?php echo $tahun; ?>' hidden>
+															</td>
+															<td>
+																<input type=number min=1 name=freq[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
+															</td>
+														  </tr>
+													<?php endfor; ?>
+												  </table>
+												  <table class="table table-hover custom-table-header">
+														  <tr>
+															<th>Biaya Produksi / Unit</th>
+															<th>Harga Penjualan / Unit</th>
+														  <tr>
+														  <tr>
+															  <td><input type=number min=1 name="biaya" placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
+															  <td><input type=number min=1 name="penjualan" placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')"></td>
+														  </tr>
+												  </table>
+												  <div class="input-group-btn">
+													<input type="hidden" name="jumlah" value="<?php echo $banyak; ?>">
+													<center><input type="submit" value="Hitung" name="submit" class="btn btn-success" style="padding-left: 30px; padding-right: 30px;"></center>
+												  </div>
+												</div>
+											  </form>
+											</div>
+											<?php endif; ?>
 									<?php endif; ?>
-							<?php endif; ?>
-									</div>
-						</div>
-					</div>
-
+											</div>
+								</div>
+							</div>
+			</div>
+		</div>
 	</div>
 	</body>
 	<script>

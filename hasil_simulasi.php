@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 	<head>
 		<title>Program Simulasi Monte Carlo - Kelompok 2</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,13 @@
 				<h1>Prediksi Permintaan (Monte Carlo)</h1>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
+
+	<?php
+		require 'templates/header.php';
+		require 'templates/side_bar.php';
+	
+	?>
 	<div class="container">
 
 		<?php
@@ -43,7 +49,7 @@
 			$year = unserialize(base64_decode($_POST['year']));
 			// var_dump($year);
 		?>
-		<div class="panel panel-primary">
+		<div class="panel panel-primary" style="margin-top:20px;">
 			<div class="panel-heading">Hasil Perhitungan</div>
 			<div class="panel-body">
 				<div class="input-group">
