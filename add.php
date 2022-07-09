@@ -9,6 +9,7 @@
 		$year = unserialize(base64_decode($_POST['years']));
 		$demand = unserialize(base64_decode($_POST['demand']));
 		$demand_result = unserialize(base64_decode($_POST['demand_result']));
+        $freq = unserialize(base64_decode($_POST['freq']));
 		var_dump($demand_result, 'object demand_result');
         var_dump($demand, 'object demand');
         var_dump($year, 'object year');
@@ -52,9 +53,9 @@
                     $varTname = $year[$i];
                     $varCity = $demand[$i];
                     $varBplayer = $demand_result[$i];
-                    // $varYearformed = $_POST['yearformed'][$i];
+                    $varYearformed = $freq[$i];
                     // $varWebsite = $_POST['website'][$i];
-                    $sql .= "(" .$varTname. " , " .$varCity. " , " .$varBplayer. "),";   
+                    $sql .= "(" .$varTname. " , " .$varCity. " , " .$varBplayer. "," .$varYearformed. "),";   
                 }
                 $sql = rtrim($sql, ',');
                 var_dump($sql);

@@ -77,7 +77,7 @@
 
 				require 'templates/header.php';
 				require 'templates/side_bar.php'	;
-
+				var_dump($freq);
 			?>
 
 		<!-- Container -->
@@ -99,8 +99,8 @@
 					<?php for($i=0; $i<count($freq); $i++): ?>
 						  <tr>
 							  <td> <?php echo $demand[$i]; ?> 
-									<input type="input" name="demand[]" value="<?php echo $demand[$i]; ?>" readonly 	/>
-									<input type="input" name="year[]" value="<?php echo $year[$i]; ?>" />
+									<input type="input" name="demand[]" value="<?php echo $demand[$i]; ?>" readonly 	hidden/>
+									<input type="input" name="year[]" value="<?php echo $year[$i]; ?>" hidden />
 								</td>
 							  <td> <?php echo $probability[$i]; ?> </td>
 							  <td> <?php echo $cumulative[$i]; ?> </td>
@@ -168,7 +168,7 @@
 									<input type="hidden" value="<?php print base64_encode(serialize($botInterval)); ?>" name="botInterval">
 									<input type="hidden" value="<?php print base64_encode(serialize($topInterval)); ?>" name="topInterval">
 									<input type="hidden" value="<?php print base64_encode(serialize($year)); ?>" name="year">
-									
+									<input type="hidden" value="<?php print base64_encode(serialize($freq)); ?>" name="freq">	
 									<tr>
 										<td colspan="2" align="center"><input type="submit" class="btn btn-success" value="Run" style="padding-left: 30px; padding-right: 30px;"></td>
 									</tr>

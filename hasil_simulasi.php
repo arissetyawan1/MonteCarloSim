@@ -47,7 +47,9 @@
 			$topInterval = unserialize(base64_decode($topInt));
 			$demandResult;
 			$year = unserialize(base64_decode($_POST['year']));
-			// var_dump($year);
+			$freq = unserialize(base64_decode($_POST['freq']));
+			var_dump($freq);
+			// var_dump($demand);
 		?>
 		<div class="panel panel-primary" style="margin-top:20px;">
 			<div class="panel-heading">Hasil Perhitungan</div>
@@ -59,7 +61,7 @@
 					<table class="table table-hover custom-table-header">
 						  <tr>
 							  <th>Hari</th>
-							  <th>Penjualan</th>
+							  <!-- <th>Penjualan</th> -->
 							  <th>Bilangan Acak</th>
 							  <th>Permintaan</th>
 						  </tr>
@@ -68,9 +70,9 @@
 							  <td> <?php
 									echo $i+1; ?>
 							  </td>
-							  <td>
-								<?php echo $demand[$i]; ?>
-							  </td>
+							  <!-- <td> -->
+								<!-- <?php echo $demand[$i]; ?> -->
+							  <!-- </td> -->
 							  <td>
 								<?php
 									//proses random dengan metode LCM
@@ -110,7 +112,7 @@
 					?>
 					<h4><center>Rata-rata jumlah permintaan: <b><?php echo $average; ?></b></center></h4><br/>
 					<center>
-					<form action="hitung_keuntungan.php" method="post">
+					<!-- <form action="hitung_keuntungan.php" method="post">
 						<table>
 							<input type="hidden" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand">
 							<input type="hidden" value="<?php echo print base64_encode(serialize($demandResult)); ?>" name="demandRes">
@@ -124,7 +126,18 @@
 								<td><input type="submit" class="btn btn-info" value="Prediksi Keuntungan" style="padding-left: 30px; padding-right: 30px;"></td>
 							</tr>
 						</table>
-					</form>
+					</form> -->
+					<form action="add.php" method="post">
+						<table>
+							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand" hidden>
+							<input type="input" value="<?php echo print base64_encode(serialize($demandResult)); ?>" name="demand_result" hidden>
+							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name="years" hidden>
+							<input type="input" value="<?php echo print base64_encode(serialize($freq));?>" name="freq" hidden>
+							<tr>
+								<td><input type="submit" class="btn btn-info" value="Simpan Perhitungan" style="padding-left: 30px; padding-right: 30px;"></td>
+							</tr>
+						</table>
+		</form>
 					</center><br/>
 					<center><a href="prediksi_permintaan.php">Kembali Ke Awal</a></center>
 				  </div>
