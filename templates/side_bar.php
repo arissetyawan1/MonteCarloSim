@@ -19,8 +19,8 @@
         <div id="navbar" class="navbar-collapse collapse" style="color: #fff;">
           <ul class="nav navbar-nav" style="color: #fff;">
             <li><a href="/montecarlosim/prediksi_permintaan.php">Perhitungan</a></li>
-            <li><a href="/montecarlosim/laporan_penjualan.php">Laporan Penjualan</a></li>
-            <li><a href="/montecarlosim/laporan_permintaan.php">Laporan Prediksi Permintaan</a></li>
+            <li><a href="/montecarlosim/laporan_penjualan.php">Grafik Permintaan</a></li>
+            <li><a href="/montecarlosim/laporan_permintaan.php">Grafik Prediksi Permintaan</a></li>
             <!-- <li class="dropdown">
               <a
                 href="#"

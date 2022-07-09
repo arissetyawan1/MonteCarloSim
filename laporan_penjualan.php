@@ -3,10 +3,10 @@
 	$conn = new mysqli("localhost", "root", "", "prediksi");
 	
 	// Assign variables
-	$labels = $datas = "";
+	$labels = $datas = $freq = "";
 	
 	// Select query to fetch data with page load
-	$sql = "SELECT year, demand from prediksi_permintaan where year = 2023";
+	$sql = "SELECT year, demand, freq from prediksi_permintaan where year = 2023";
 	$result = $conn->query($sql);
 	
 	// Create data in comma seperated string
@@ -15,12 +15,14 @@
         while($row = $result->fetch_assoc()){
             $labels .= "'" . $row['year'] . "',";
             $datas .= $row['demand'] . ",";
+            $freq .= $row['freq'] . ",";
         }
     }
 	
 	// Remove the last comma from the string
 	$lbl = trim($labels, ",");
 	$val = trim($datas, ",");
+    $fr = trim($freq, ",");
 ?>
 <?php
     require 'templates/header.php';
@@ -29,7 +31,7 @@
 
 <div class="container   " style="margin-left:40px;">
     <div class="row" style="margin-top: 50px;">
-        <h1>Grafik Penjualan</h1>    
+        <h1>Grafik Permintaan</h1>    
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="input-group">
@@ -46,7 +48,9 @@
 </div>
 <script>
     var lbl = [<?= $lbl ?>]; // Get Labels from php variable
-	var val = [<?= $val ?>]; // Get Data from php variable
+	var val = [<?= $val ?>];
+    var freq = [<?= $freq ?>];
+    console.log(freq); // Get Data from php variable
 			// Chart data with page load
      myData = {
 		labels: lbl,
@@ -61,7 +65,7 @@
 			// Draw default chart with page load
 	var ctx = document.getElementById('my_Chart').getContext('2d');
 	var myChart = new Chart(ctx, {
-		type: 'bar',    // Define chart type
+		type: 'line',    // Define chart type
 		data: myData    // Chart data
 	});
      $("#datepicker").datepicker({
@@ -84,7 +88,7 @@
 						myChart.destroy();
 						//Draw new chart with Ajax data
 						myChart = new Chart(ctx, {
-							type: 'bar',    // Define chart type
+							type: 'line',    // Define chart type
 							data: e    		// Chart data
 						});
 					}
