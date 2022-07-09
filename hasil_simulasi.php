@@ -49,8 +49,8 @@
 			$year = unserialize(base64_decode($_POST['year']));
 			$freq = unserialize(base64_decode($_POST['freq']));
 			$month = unserialize(base64_decode($_POST['month']));
-			var_dump($month);
-			var_dump($freq);
+			// var_dump($month);
+			// var_dump($freq);
 		?>
 		<div class="panel panel-primary" style="margin-top:20px;">
 			<div class="panel-heading">Hasil Perhitungan</div>
@@ -132,15 +132,15 @@
 						<table>
 							<?php for ($i=0; $i < $jmlRandom ; $i++) : ?>
 							<!-- <input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name=demand hidden> -->
-							<input type="input" value="<?php echo $demand[$i]; ?>" name="demand[]" >
+							<input type="input" value="<?php echo $demand[$i]; ?>" name="demand[]" hidden>
 							<!-- <input type="input" value="<?php echo print base64_encode(serialize($demandResult)); ?>" name=demand_result" hidden> -->
-							<input type="input" value="<?php echo  $demandResult[$i]; ?>" name="demandResult[]" >
+							<input type="input" value="<?php echo  $demandResult[$i]; ?>" name="demandResult[]" hidden>
 							<!-- <input type="input" value="<?php echo print base64_encode(serialize($year));?>" name=years hidden> -->
-							<input type="input" value="<?php echo $year[$i];?>" name="years[]" >
+							<input type="input" value="<?php echo $year[$i];?>" name="years[]" hidden>
 							<!-- <input type="input" value="<?php echo print base64_encode(serialize($freq));?>" name=freq hidden> -->
-							<input type="input" value="<?php echo $freq[$i];?>" name="freq[]" >
+							<input type="input" value="<?php echo $freq[$i];?>" name="freq[]" hidden>
 							<!-- <input type="input" value="<?php echo print base64_encode(serialize($month));?>" name=month > -->
-							<input type="input" value="<?php echo $month[$i];?>" name="month[]" >
+							<input type="input" value="<?php echo $month[$i];?>" name="month[]" hidden>
 							<?php endfor ;?>
 							<tr>
 								<td><input type="submit" class="btn btn-info" value="Simpan Perhitungan" style="padding-left: 30px; padding-right: 30px;"></td>

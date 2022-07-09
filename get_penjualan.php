@@ -6,7 +6,7 @@
 	// if(isset($_GET['id']) && $_GET['id'] != '')
 	// {
 		// Select query on GET request
-		$sql = "SELECT year, demand, freq from prediksi_permintaan where year =".$_GET['id'];
+		$sql = "SELECT month, demand, freq from prediksi_permintaan where year =".$_GET['id'];
 		$result = $conn->query($sql);
 		// var_dump($result);
 		// Store data in array
@@ -14,7 +14,7 @@
 			# code...
 
 			while($row = $result->fetch_assoc()){
-				$labels[] = $row['year'];
+				$labels[] = $row['month'];
 				$datas[] = $row['demand'];
 				$freq[] = $row['freq'];
 			}
@@ -28,7 +28,7 @@
 				'fill' => false, 
 				'backgroundColor' => array('#ff0000', '#ff4000', '#ff8000', '#ffbf00', '#ffbf00', '#ffff00', '#bfff00', '#80ff00'), 
 				'borderColor' => 'black', 
-				'data' => $datas, $freq
+				'data' => $datas,
 			)),
 		);
 		

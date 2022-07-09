@@ -6,14 +6,14 @@
 	$labels = $datas = $freq = "";
 	
 	// Select query to fetch data with page load
-	$sql = "SELECT year, demand, freq from prediksi_permintaan where year = 2023";
+	$sql = "SELECT month, demand, freq from prediksi_permintaan where year = 2023";
 	$result = $conn->query($sql);
 	
 	// Create data in comma seperated string
     if ($result) {
         # code...
         while($row = $result->fetch_assoc()){
-            $labels .= "'" . $row['year'] . "',";
+            $labels .= "'" . $row['month'] . "',";
             $datas .= $row['demand'] . ",";
             $freq .= $row['freq'] . ",";
         }
@@ -65,7 +65,7 @@
 			// Draw default chart with page load
 	var ctx = document.getElementById('my_Chart').getContext('2d');
 	var myChart = new Chart(ctx, {
-		type: 'line',    // Define chart type
+		type: 'bar',    // Define chart type
 		data: myData    // Chart data
 	});
      $("#datepicker").datepicker({
@@ -88,7 +88,7 @@
 						myChart.destroy();
 						//Draw new chart with Ajax data
 						myChart = new Chart(ctx, {
-							type: 'line',    // Define chart type
+							type: 'bar',    // Define chart type
 							data: e    		// Chart data
 						});
 					}

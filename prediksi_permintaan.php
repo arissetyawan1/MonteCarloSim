@@ -92,7 +92,7 @@
 										$bulan =['Januari', 'Februari', 'Maret', 'April', 'May', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
 											$banyak = $_POST['jumlah'] ;
 											$tahun = $_POST['tahun'];
-											var_dump($tahun);	
+											// var_dump($tahun);	
 										;?>
 											<?php if(!empty($banyak)): ?>
 											<div class="input-group">
@@ -110,7 +110,7 @@
 															<td>
 																<input type=number min=0 name=demand[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">
 																<input min=0 name=year[] placeholder="0" value='<?php echo $tahun; ?>' hidden>
-																<input name="month[]" placeholder="0" value='<?php echo $bulan[$i]; ?>'>
+																<input name="month[]" placeholder="0" value='<?php echo $bulan[$i]; ?>' hidden>
 															</td>
 															<td>
 																<input type=number min=1 name=freq[] placeholder="0" class="form-control" required="" oninvalid="this.setCustomValidity('Harap di isi !')" oninput="setCustomValidity('')">

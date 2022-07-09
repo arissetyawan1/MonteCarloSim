@@ -33,7 +33,7 @@
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				// var_dump($year);
-				var_dump($month);
+				// var_dump($month);
 				//menghitung total frekuensi permintaan
 				for($i=0;$i<count($freq);$i++){
 					$total = $total + $freq[$i];
@@ -79,7 +79,7 @@
 
 				require 'templates/header.php';
 				require 'templates/side_bar.php'	;
-				var_dump($freq);
+				// var_dump($freq);
 			?>
 
 		<!-- Container -->
