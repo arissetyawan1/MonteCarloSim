@@ -68,20 +68,20 @@
             //     var_dump($sql);
             //     $stmt = mysqli_prepare($link, $sql);
             //     mysqli_stmt_execute($stmt);
-                // header('location:index.php');
             foreach ($year as $key => $d) {
                 $sql = "INSERT INTO prediksi_permintaan (year, demand, demand_result, month, freq) VALUES ($year[$key], $demand[$key], $demand_res[$key], '$month[$key]', $freq[$key])";
-
-            //        if ($sql === TRUE) { //the $sql will not be true it will be the equal to to the string of the query
-            //            mysqli_query($query, $sql);
-            //        } else {
-            //            echo "Error: " . $sql . "<br>" . $query->error;
-            //        }
-
-                if (!mysqli_query($link, $sql)) { //tries to perform the query, if it doesnt work prints the error
-                    echo "Error: " . $sql . "<br>" . $link->error;
-                }
-            }
+                
+                //        if ($sql === TRUE) { //the $sql will not be true it will be the equal to to the string of the query
+                    //            mysqli_query($query, $sql);
+                    //        } else {
+                        //            echo "Error: " . $sql . "<br>" . $query->error;
+                        //        }
+                        
+                        if (!mysqli_query($link, $sql)) { //tries to perform the query, if it doesnt work prints the error
+                            echo "Error: " . $sql . "<br>" . $link->error;
+                        }
+                    }
+                    header('location:index.php');
         } catch (\Throwable $th) {
             throw $th;
         }
