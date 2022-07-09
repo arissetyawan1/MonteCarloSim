@@ -48,8 +48,9 @@
 			$demandResult;
 			$year = unserialize(base64_decode($_POST['year']));
 			$freq = unserialize(base64_decode($_POST['freq']));
+			$month = unserialize(base64_decode($_POST['month']));
+			var_dump($month);
 			var_dump($freq);
-			// var_dump($demand);
 		?>
 		<div class="panel panel-primary" style="margin-top:20px;">
 			<div class="panel-heading">Hasil Perhitungan</div>
@@ -129,10 +130,18 @@
 					</form> -->
 					<form action="add.php" method="post">
 						<table>
-							<input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name="demand" hidden>
-							<input type="input" value="<?php echo print base64_encode(serialize($demandResult)); ?>" name="demand_result" hidden>
-							<input type="input" value="<?php echo print base64_encode(serialize($year));?>" name="years" hidden>
-							<input type="input" value="<?php echo print base64_encode(serialize($freq));?>" name="freq" hidden>
+							<?php for ($i=0; $i < $jmlRandom ; $i++) : ?>
+							<!-- <input type="input" value="<?php echo print base64_encode(serialize($demand)); ?>" name=demand hidden> -->
+							<input type="input" value="<?php echo $demand[$i]; ?>" name="demand[]" >
+							<!-- <input type="input" value="<?php echo print base64_encode(serialize($demandResult)); ?>" name=demand_result" hidden> -->
+							<input type="input" value="<?php echo  $demandResult[$i]; ?>" name="demandResult[]" >
+							<!-- <input type="input" value="<?php echo print base64_encode(serialize($year));?>" name=years hidden> -->
+							<input type="input" value="<?php echo $year[$i];?>" name="years[]" >
+							<!-- <input type="input" value="<?php echo print base64_encode(serialize($freq));?>" name=freq hidden> -->
+							<input type="input" value="<?php echo $freq[$i];?>" name="freq[]" >
+							<!-- <input type="input" value="<?php echo print base64_encode(serialize($month));?>" name=month > -->
+							<input type="input" value="<?php echo $month[$i];?>" name="month[]" >
+							<?php endfor ;?>
 							<tr>
 								<td><input type="submit" class="btn btn-info" value="Simpan Perhitungan" style="padding-left: 30px; padding-right: 30px;"></td>
 							</tr>

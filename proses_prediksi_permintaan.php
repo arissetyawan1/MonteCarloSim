@@ -31,7 +31,9 @@
 				$botInterval = [];
 				$topInterval = [];
 				$year = $_POST['year'];
+				$month = $_POST['month'];
 				// var_dump($year);
+				var_dump($month);
 				//menghitung total frekuensi permintaan
 				for($i=0;$i<count($freq);$i++){
 					$total = $total + $freq[$i];
@@ -169,6 +171,7 @@
 									<input type="hidden" value="<?php print base64_encode(serialize($topInterval)); ?>" name="topInterval">
 									<input type="hidden" value="<?php print base64_encode(serialize($year)); ?>" name="year">
 									<input type="hidden" value="<?php print base64_encode(serialize($freq)); ?>" name="freq">	
+									<input type="hidden" value="<?php print base64_encode(serialize($month)); ?>" name="month">
 									<tr>
 										<td colspan="2" align="center"><input type="submit" class="btn btn-success" value="Run" style="padding-left: 30px; padding-right: 30px;"></td>
 									</tr>
