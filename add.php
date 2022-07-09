@@ -10,9 +10,10 @@
 		$demand = unserialize(base64_decode($_POST['demand']));
 		$demand_result = unserialize(base64_decode($_POST['demand_result']));
         $freq = unserialize(base64_decode($_POST['freq']));
-		var_dump($demand_result, 'object demand_result');
-        var_dump($demand, 'object demand');
-        var_dump($year, 'object year');
+		// var_dump($demand_result, 'object demand_result');
+        // var_dump($demand, 'object demand');
+        // var_dump($year, 'object year');
+        var_dump($freq, 'object freq');
 		// include database connection file
 		include_once("koneksi.php");
 				
@@ -48,14 +49,14 @@
         // }
 
         try {
-             $sql = "INSERT INTO prediksi_permintaan(year, demand, demand_result) VALUES ";
+             $sql = "INSERT INTO prediksi_permintaan(year, demand, demand_result, freq) VALUES ";
                 for($i = 0 ; $i < count($year) ; $i++){
-                    $varTname = $year[$i];
-                    $varCity = $demand[$i];
-                    $varBplayer = $demand_result[$i];
-                    $varYearformed = $freq[$i];
+                    $years = $year[$i];
+                    $demands = $demand[$i];
+                    $demand_res = $demand_result[$i];
+                    $frequencies = $freq[$i];
                     // $varWebsite = $_POST['website'][$i];
-                    $sql .= "(" .$varTname. " , " .$varCity. " , " .$varBplayer. "," .$varYearformed. "),";   
+                    $sql .= "(" .$years. " , " .$demands. " , " .$demand_res. "," .$frequencies. "),";   
                 }
                 $sql = rtrim($sql, ',');
                 var_dump($sql);
